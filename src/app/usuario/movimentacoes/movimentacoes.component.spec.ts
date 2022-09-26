@@ -11,7 +11,9 @@ describe('MovimentacoesComponent', () => {
       declarations: [ MovimentacoesComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(MovimentacoesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

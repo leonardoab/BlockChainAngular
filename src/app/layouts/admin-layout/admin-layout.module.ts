@@ -10,6 +10,8 @@ import { CadastrarCursoComponent } from '../../curso/cadastrar-curso/cadastrar-c
 import { ConsultarCursoComponent } from '../../curso/consultar-curso/consultar-curso.component';
 import { CursoService } from '../../_services/curso.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { MovimentacoesComponent } from '../../usuario/movimentacoes/movimentacoes.component';
+import { CarteiraComponent } from '../../usuario/carteira/carteira.component';
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   declarations: [
     CadastrarCursoComponent,
     ConsultarCursoComponent,
+    MovimentacoesComponent,
+    CarteiraComponent,
     
   ]
 })
