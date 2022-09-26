@@ -1,0 +1,150 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">{{tituloPagina}}</h5>
+        </div>
+        <div class="card-body">
+          <form id="submitGravar" [formGroup]="cadastroCursoForm" (ngSubmit)="gravar()">
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Nome</label>
+                  <input id="nome" name="nome" formControlName="nome" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Carga Horária</label>
+                  <input id="cargaHoraria" formControlName="cargaHoraria" type="number" class="form-control">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label>Objetivo</label>
+                  <textarea rows="1" cols="80" class="form-control" id="objetivo" formControlName="objetivo"
+                    placeholder="{{tituloPagina == 'Novo Curso'
+                    ? 'Descreva o objetivo do curso' : ''}}"></textarea>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label>Bibliografia</label>
+                  <textarea rows="1" cols="80" class="form-control" id="bibliografia" formControlName="bibliografia"
+                    placeholder="{{tituloPagina == 'Novo Curso'
+                    ? 'Descreva a bibliografia do curso' : ''}}"></textarea>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label>Avaliação</label>
+                  <textarea rows="1" cols="80" class="form-control" id="avaliacao" formControlName="avaliacao"
+                    placeholder="{{tituloPagina == 'Novo Curso'
+                    ? 'Descreva a avaliação do curso' : ''}}"></textarea>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label>Certificação</label>
+                  <textarea rows="1" cols="80" class="form-control" id="certificacao" formControlName="certificacao"
+                    placeholder="{{tituloPagina == 'Novo Curso'
+                    ? 'Descreva a certificação do curso' : ''}}"></textarea>
+                </div>
+              </div>
+            </div>
+            <br>
+           <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Eixo Tecnológico</label>
+                  <br>
+                  <select class="form-control" id="eixoTecnologicoId" formControlName="eixoTecnologicoId">
+                    <option class="txt-bold" [ngValue]=null>Selecione</option>
+                    <option *ngFor="let e of eixoTecnologico" [value]="e.id">
+                      {{e.descricao}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Segmento</label>
+                  <br>
+                  <select class="form-control" id="segmentoId" formControlName="segmentoId">
+                    <option class="txt-bold" [ngValue]=null>Selecione</option>
+                    <option *ngFor="let s of segmento" [value]="s.id">
+                      {{s.descricao}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Modalidade de Educação</label>
+                  <br>
+                  <select class="form-control" id="modalidadeEducacaoId" formControlName="modalidadeEducacaoId">
+                    <option class="txt-bold" [ngValue]=null>Selecione</option>
+                    <option *ngFor="let m of modalidadeEducacao" [value]="m.id">
+                      {{m.descricao}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Tipo de Curso</label>
+                  <br>
+                  <select class="form-control" id="tipoCursoId" formControlName="tipoCursoId">
+                    <option class="txt-bold" [ngValue]=null>Selecione</option>
+                    <option *ngFor="let t of tipoCurso" [value]="t.id">
+                      {{t.descricao}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>Modalidade de Ensino</label>
+                  <br>
+                  <select class="form-control" id="modalidadeEnsinoId" formControlName="modalidadeEnsinoId">
+                    <option class="txt-bold" [ngValue]=null>Selecione</option>
+                    <option *ngFor="let m of modalidadeEnsino" [value]="m.id">
+                      {{m.descricao}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row" *ngIf="tituloPagina != 'Detalhes do Curso'">
+              <div class="col-lg-12">
+                <button class="btn btn-primary btn-block" type="submit">Gravar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

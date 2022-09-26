@@ -1,0 +1,88 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Consultar Cursos</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Nome
+                </th>
+                <th>
+                  Carga Horária
+                </th>
+                <th>
+                  Modalidade de Ensino
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of cursos">
+                  <td>
+                    {{c.nome}}
+                  </td>
+                  <td>
+                    {{c.cargaHoraria}}
+                  </td>
+                  <td>
+                    {{c.modalidadeEnsino.descricao}}
+                  </td>
+                  <td>
+                    <div ngbDropdown class="dropdown" placement="bottom-right">
+                      <button class="btn btn-default dropdown-toggle" ngbDropdownToggle>
+                        <i class="fa fa-cog"></i>
+                        Ações</button>
+                      <div ngbDropdownMenu>
+                        <a class="dropdown-item" (click)="irParaDetalhes(c.id)">Detalhar</a>
+                        <a class="dropdown-item" (click)="irParaEdicao(c.id)">Editar</a>
+                        <a class="dropdown-item" (click)="modalConfirmarExclusao(c.id)">Excluir</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div bsModal #lgModalConfirmarExclusao="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form id="form-confirmar-exclusao" novalidate="novalidate">
+                    <fieldset>
+                        <div id="labelConfirmacao" class="row">
+                            <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h6>
+                                    <strong> Deseja excluir este curso?</strong>
+                                </h6>
+                            </section>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancelar" class="btn btn-default"
+                    (click)="lgModalConfirmarExclusao.hide()">
+                    Cancelar
+                </button>
+                <button type="button" id="btnExcluir" class="btn btn-primary" (click)="excluir()" >
+                    Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngFor="let c of nfts">{{c.nome}}</div>
