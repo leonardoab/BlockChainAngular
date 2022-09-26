@@ -4,10 +4,12 @@ import { catchError } from "rxjs/operators";
 import { Curso } from "../_models/curso";
 import { BaseService } from "./base.service";
 
+
 @Injectable()
 export class CursoService extends BaseService{
 
     UrlAPI = 'https://pos-infnet-catalogo-curso.azure-api.net/v1/api/'
+    UrlAPIBlock = 'https://blockchain.azure-api.net/api/'
     //UrlAPI = 'https://pos-infnet-catalogo-curso.azurewebsites.net/api/'
     //UrlAPI = 'https://localhost:7262/api/'
 
@@ -66,7 +68,17 @@ export class CursoService extends BaseService{
     }
 
     public BuscarTodosNfts(){
-        return this.httpClient.get('https://blockchain.azure-api.net/api/Nft/ListarTodos')
+        return this.httpClient.get(this.UrlAPIBlock + 'Nft/ListarTodos')
+        .pipe(catchError(this.handleError));
+    }
+
+    public BuscarTodasCarteiras(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Carteira/ListarTodos')
+        .pipe(catchError(this.handleError));
+    }
+
+    public BuscarTodosHistoricos(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/ListarTodos')
         .pipe(catchError(this.handleError));
     }
 }

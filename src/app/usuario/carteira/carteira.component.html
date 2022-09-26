@@ -5,32 +5,32 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Consultar Cursos</h4>
+          <h4 class="card-title">Quantidade de tokens por carteira</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Nome
+                  Código Carteira
                 </th>
                 <th>
-                  Carga Horária
+                  Total Tokens
                 </th>
                 <th>
-                  Modalidade de Ensino
+                  Tipo Carteira
                 </th>
               </thead>
               <tbody>
-                <tr >
+                <tr *ngFor="let c of carteiras">
                   <td>
-                   a
+                   {{c.codigoCarteira}}
                   </td>
                   <td>
-                   a
+                    {{c.saldo | number:'1.0'}}
                   </td>
                   <td>
-                   a
+                    {{c.tipoCarteira}}
                   </td>
                   
                 </tr>

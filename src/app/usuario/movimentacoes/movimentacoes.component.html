@@ -5,32 +5,38 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Consultar Cursos</h4>
+          <h4 class="card-title">Histórico de movimentaçoes por carteira a cada 5 minutos. Somente top 500 carteiras</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Nome
+                  Data Verificação / Evento Mudança
                 </th>
                 <th>
-                  Carga Horária
+                  Código Carteira
                 </th>
                 <th>
-                  Modalidade de Ensino
+                  Saldo Atual Após o Evento
+                </th>
+                <th>
+                 Operação (Positivo = Acumulo, Negativo = Diminuição)
                 </th>
               </thead>
               <tbody>
-                <tr >
+                <tr *ngFor="let c of historicos">
                   <td>
-                   a
+                    {{c.dataHistorico}}
                   </td>
                   <td>
-                   a
+                    {{c.codigoCarteira}}
                   </td>
                   <td>
-                   a
+                    {{c.saldo | number:'1.0'}}
+                  </td>
+                  <td>
+                    {{c.diferenca | number:'1.0'}}
                   </td>
                   
                 </tr>

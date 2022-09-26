@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { CursoService } from '../../_services/curso.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-carteira',
@@ -7,9 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarteiraComponent implements OnInit {
 
-  constructor() { }
+  carteiras;
 
-  ngOnInit(): void {
+  constructor(private cursoService: CursoService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
+
+  ngOnInit() {
+    
+    this.consultarTodasCarteiras();
+  }
+
+  consultarTodasCarteiras() {
+    this.cursoService.BuscarTodasCarteiras().subscribe(
+      data => {
+        if (data) {
+          this.carteiras = data;
+          this.carteiras = this.carteiras.carteiras;
+        }
+      });
   }
 
 }

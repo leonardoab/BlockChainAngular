@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { CursoService } from '../../_services/curso.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-movimentacoes',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovimentacoesComponent implements OnInit {
 
-  constructor() { }
+  historicos;
 
-  ngOnInit(): void {
+  constructor(private cursoService: CursoService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
+
+  ngOnInit() {
+    
+    this.consultarTodosHistoricos();
   }
+
+  consultarTodosHistoricos() {
+    this.cursoService.BuscarTodosHistoricos().subscribe(
+      data => {
+        if (data) {
+          this.historicos = data;
+          this.historicos = this.historicos.historicos;
+        }
+      });
+  }
+
 
 }
