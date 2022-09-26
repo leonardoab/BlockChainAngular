@@ -8,34 +8,74 @@
           <h4 class="card-title">Histórico de movimentaçoes por carteira a cada 5 minutos. Somente top 500 carteiras</h4>
         </div>
         <div class="card-body">
+        
+          <div class="row"> 
+        
+          <div class="col-md-2">
+          
+          <label>Tipo de Carteira</label>
+            <select class="form-control" id="tipoCarteiraId" formControlName="tipoCarteiraId" >
+              <option class="txt-bold"  value="1" >Todas</option>
+              <option class="txt-bold"  value="1">Queima</option>
+              <option class="txt-bold"  value="1">Contrato</option>
+              <option class="txt-bold"  value="1">Empresa</option>
+              <option class="txt-bold"  value="1">Privada</option>
+             
+            </select>
+              
+
+
+
+
+          </div>
+
+          
+              <div class="col-md-2">
+            
+              
+                <label>Codigo Carteira</label>
+                <input id="codigoCarteira" formControlName="codigoCarteira" type="number" class="form-control">
+                    
+      
+      
+      
+      
+                </div>
+
+            
+
+        </div>
+
+          
+          
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>
+                <th class="text-center">
                   Data Verificação / Evento Mudança
                 </th>
-                <th>
+                <th class="text-center">
                   Código Carteira
                 </th>
-                <th>
+                <th class="text-center">
                   Saldo Atual Após o Evento
                 </th>
-                <th>
+                <th class="text-center">
                  Operação (Positivo = Acumulo, Negativo = Diminuição)
                 </th>
               </thead>
               <tbody>
                 <tr *ngFor="let c of historicos">
-                  <td>
-                    {{c.dataHistorico}}
+                  <td class="text-center">
+                    {{c.dataHistorico | date:'dd/MM/YY HH:mm' }}
                   </td>
-                  <td>
-                    {{c.codigoCarteira}}
+                  <td class="text-center">
+                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" > {{c.codigoCarteira}}</a>
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{c.saldo | number:'1.0'}}
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{c.diferenca | number:'1.0'}}
                   </td>
                   

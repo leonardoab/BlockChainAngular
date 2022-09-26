@@ -7,29 +7,68 @@
         <div class="card-header">
           <h4 class="card-title">Quantidade de tokens por carteira</h4>
         </div>
+        
         <div class="card-body">
+          <div class="row"> 
+        
+            <div class="col-md-2">
+            
+            <label>Tipo de Carteira</label>
+              <select class="form-control" id="tipoCarteiraId" formControlName="tipoCarteiraId" >
+                <option class="txt-bold"  value="1" >Todas</option>
+                <option class="txt-bold"  value="1">Queima</option>
+                <option class="txt-bold"  value="1">Contrato</option>
+                <option class="txt-bold"  value="1">Empresa</option>
+                <option class="txt-bold"  value="1">Privada</option>
+               
+              </select>
+                
+  
+  
+  
+  
+            </div>
+  
+            
+  
+                <div class="col-md-2">
+              
+                
+                  <label>Codigo Carteira</label>
+                  <input id="codigoCarteira" formControlName="codigoCarteira" type="number" class="form-control">
+                      
+        
+        
+        
+        
+                  </div>
+  
+              
+  
+          </div>
+  
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>
+                <th class="text-center">
                   Código Carteira
                 </th>
-                <th>
+                <th class="text-center">
                   Total Tokens
                 </th>
-                <th>
+                <th class="text-center">
                   Tipo Carteira
                 </th>
               </thead>
               <tbody>
                 <tr *ngFor="let c of carteiras">
-                  <td>
-                   {{c.codigoCarteira}}
+                  <td class="text-center">
+                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" > {{c.codigoCarteira}}</a>
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{c.saldo | number:'1.0'}}
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{c.tipoCarteira}}
                   </td>
                   
