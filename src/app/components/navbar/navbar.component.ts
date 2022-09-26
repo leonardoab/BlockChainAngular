@@ -149,6 +149,6 @@ export class NavbarComponent implements OnInit {
               return this.listTitles[item].title;
           }
       }
-      return 'Catálogo de Cursos';
+      return '';
     }
 }
