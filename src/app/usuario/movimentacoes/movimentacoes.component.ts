@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class MovimentacoesComponent implements OnInit {
 
   historicos;
+  codigoCarteira: string = '';
 
   constructor(private cursoService: CursoService,
     private router: Router,
@@ -31,6 +32,18 @@ export class MovimentacoesComponent implements OnInit {
           this.historicos = this.historicos.historicos;
         }
       });
+  }
+
+  BuscarPorCodCarteira() {
+    console.log(this.codigoCarteira);
+    this.cursoService.BuscarPorCodCarteiraHist(this.codigoCarteira).subscribe(
+      data => {
+        if (data) {
+          this.historicos = data;
+          //this.carteiras = this.carteiras.carteiras;
+        }
+      });
+    
   }
 
 

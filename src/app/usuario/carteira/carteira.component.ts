@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CarteiraComponent implements OnInit {
 
   carteiras;
+  codigoCarteira: string = '';
 
   constructor(private cursoService: CursoService,
     private router: Router,
@@ -35,6 +36,16 @@ export class CarteiraComponent implements OnInit {
       });
  }
 
+ BuscarCarteirasPrivada(){
+  this.cursoService.BuscarTodasCarteirasPrivada().subscribe(
+    data => {
+      if (data) {
+        this.carteiras = data;
+        //this.carteiras = this.carteiras.carteiras;
+      }
+    });
+}
+
   ngOnInit() {
     
     this.consultarTodasCarteiras();
@@ -49,6 +60,21 @@ export class CarteiraComponent implements OnInit {
         }
       });
   }
+
+
+  BuscarPorCodCarteira() {
+    console.log(this.codigoCarteira);
+    this.cursoService.BuscarPorCodCarteira(this.codigoCarteira).subscribe(
+      data => {
+        if (data) {
+          this.carteiras = data;
+          //this.carteiras = this.carteiras.carteiras;
+        }
+      });
+    
+  }
+
+  
 
   
    
