@@ -73,7 +73,18 @@ export class CursoService extends BaseService{
     }
 
     public BuscarTodasCarteiras(){
-        return this.httpClient.get(this.UrlAPIBlock + 'Carteira/ListarTodos')
+        return this.httpClient.get(this.UrlAPIBlock + 'Carteira/TodasCarteirasTodosTipos')
+        .pipe(catchError(this.handleError));
+    }
+
+
+    public BuscarTodasCarteirasEmpresa(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Carteira/TodasCarteirasTodosTipos')
+        .pipe(catchError(this.handleError));
+    }
+
+    public BuscarTodasCarteirasPrivada(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Carteira/TodasCarteirasEmpresa')
         .pipe(catchError(this.handleError));
     }
 

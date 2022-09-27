@@ -10,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './carteira.component.html',
   styleUrls: ['./carteira.component.css']
 })
+
+
 export class CarteiraComponent implements OnInit {
 
   carteiras;
@@ -17,7 +19,21 @@ export class CarteiraComponent implements OnInit {
   constructor(private cursoService: CursoService,
     private router: Router,
     private toastr: ToastrService
-  ) { }
+  ) { 
+
+   
+
+  }
+
+  BuscarCarteirasEmpresa(){
+    this.cursoService.BuscarTodasCarteirasEmpresa().subscribe(
+      data => {
+        if (data) {
+          this.carteiras = data;
+          //this.carteiras = this.carteiras.carteiras;
+        }
+      });
+ }
 
   ngOnInit() {
     
@@ -29,9 +45,16 @@ export class CarteiraComponent implements OnInit {
       data => {
         if (data) {
           this.carteiras = data;
-          this.carteiras = this.carteiras.carteiras;
+          //this.carteiras = this.carteiras.carteiras;
         }
       });
   }
+
+  
+   
+
+
+
+
 
 }
