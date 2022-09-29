@@ -6,16 +6,17 @@
       <div class="card">
         
         <div class="card-body">
-          <!--<div class="row justify-content-center" style="padding-bottom: 5px;">
+          <div class="row justify-content-center" style="padding-bottom: 5px;">
            
            
-            <button class="btn btn-primary" type="submit">Todas Carteiras</button>
-            <button class="btn btn-primary" type="submit">Somente Carteiras Empresa</button>
-            <button class="btn btn-primary" type="submit">Somente Carteiras Privada</button>
+            <button class="btn btn-primary" (click)="consultarTodosHistoricos()">Todas Carteiras</button>
+            <button class="btn btn-primary" (click)="consultarTodosHistoricosEmpresa()" >Somente Carteiras Empresa</button>
+            <button class="btn btn-primary" (click)="consultarTodosHistoricosPrivada()" >Somente Carteiras Privada</button>  
+            <button class="btn btn-primary" (click)="consultarTodosHistoricosCem()">Transações > 100000</button>              
 
        
         
-      </div>-->
+      </div>
       <div class="row justify-content-center" style="padding-bottom: 50px;">
 
       
@@ -25,6 +26,7 @@
             <label>Código Carteira</label>
             <input id="cargaHoraria" class="form-control" [(ngModel)]="codigoCarteira" id="codigoCarteira" name="codigoCarteira">
             <button class="btn btn-primary" (click)="BuscarPorCodCarteira()">Buscar Carteira</button>
+            <button class="btn btn-primary" (click)="consultarTodosHistoricos()">Limpar</button>
 
           </div>
         </div>
@@ -68,21 +70,27 @@
 
           
           
-          <div class="table-responsive">
+          <div class="table-responsive" style="padding-right: 3%;">
             <table class="table">
               <thead class=" text-primary">
                 <th class="text-center">
                   Data
                 </th>
                 <th class="text-center">
+                  Tipo Carteira
+                </th>
+                <th class="text-center">
                   Código Carteira
                 </th>
-                <th class="text-center">
+                <th class="text-right">
                   Saldo Atual
                 </th>
-                <th class="text-center">
+                <th class="text-right">
                 Quantidade Tokens
                 </th>
+                <th class="text-right">
+                  Valor Real
+                  </th>
               </thead>
               <tbody>
                 <tr *ngFor="let c of historicos">
@@ -90,13 +98,19 @@
                     {{c.dataHistorico | date:'dd/MM/YY HH:mm' }}
                   </td>
                   <td class="text-center">
-                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" > {{c.codigoCarteira}}</a>
+                    {{c.tipoCarteira }}
                   </td>
                   <td class="text-center">
-                    {{c.saldo | number:'1.0'}}
+                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank"> {{c.codigoCarteira}}</a>
                   </td>
-                  <td class="text-center">
-                    {{c.diferenca | number:'1.0'}}
+                  <td class="text-right">
+                    {{c.saldo | number:'1.0-0'}}
+                  </td>
+                  <td class="text-right">
+                    {{c.diferenca | number:'1.0-0'}}
+                  </td>
+                  <td class="text-right">
+                    R$ {{c.valorTransacaoReal | number:'1.0-0'}}
                   </td>
                   
                 </tr>

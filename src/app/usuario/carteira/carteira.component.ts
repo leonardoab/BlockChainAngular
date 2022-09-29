@@ -34,6 +34,7 @@ export class CarteiraComponent implements OnInit {
           //this.carteiras = this.carteiras.carteiras;
         }
       });
+      this.codigoCarteira =  '';
  }
 
  BuscarCarteirasPrivada(){
@@ -44,6 +45,7 @@ export class CarteiraComponent implements OnInit {
         //this.carteiras = this.carteiras.carteiras;
       }
     });
+    this.codigoCarteira =  '';
 }
 
   ngOnInit() {
@@ -59,6 +61,7 @@ export class CarteiraComponent implements OnInit {
           //this.carteiras = this.carteiras.carteiras;
         }
       });
+      this.codigoCarteira =  '';
   }
 
 

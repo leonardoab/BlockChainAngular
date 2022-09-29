@@ -29,9 +29,43 @@ export class MovimentacoesComponent implements OnInit {
       data => {
         if (data) {
           this.historicos = data;
-          this.historicos = this.historicos.historicos;
+          
         }
       });
+      this.codigoCarteira = '';
+  }
+
+  consultarTodosHistoricosEmpresa() {
+    this.cursoService.BuscarHistEmpresa().subscribe(
+      data => {
+        if (data) {
+          this.historicos = data;
+          
+        }
+      });
+      this.codigoCarteira = '';
+  }
+
+  consultarTodosHistoricosPrivada() {
+    this.cursoService.BuscarHistPrivada().subscribe(
+      data => {
+        if (data) {
+          this.historicos = data;
+          
+        }
+      });
+      this.codigoCarteira = '';
+  }
+
+  consultarTodosHistoricosCem() {
+    this.cursoService.BuscarHistCem().subscribe(
+      data => {
+        if (data) {
+          this.historicos = data;
+          
+        }
+      });
+      this.codigoCarteira = '';
   }
 
   BuscarPorCodCarteira() {

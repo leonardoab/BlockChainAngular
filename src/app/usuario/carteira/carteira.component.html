@@ -27,6 +27,7 @@
               <label>Código Carteira</label>
               <input id="cargaHoraria" class="form-control" [(ngModel)]="codigoCarteira" id="codigoCarteira" name="codigoCarteira">
               <button class="btn btn-primary" (click)="BuscarPorCodCarteira()">Buscar Carteira</button>
+              <button class="btn btn-primary" (click)="consultarTodasCarteiras()">Limpar</button>
 
             </div>
           </div>
@@ -71,7 +72,7 @@
   
           </div>-->
   
-          <div class="table-responsive">
+          <div class="table-responsive" style="padding-right: 3%;">
             <table class="table">
               <thead class=" text-primary">
 
@@ -83,11 +84,15 @@
                   Código Carteira
                 </th>
                 <th class="text-center">
-                  Total Tokens
-                </th>
-                <th class="text-center">
                   Tipo Carteira
                 </th>
+                <th class="text-center">
+                  Tipo Carteira Empresa
+                </th>
+                <th class="text-right">
+                  Total Tokens
+                </th>
+               
               </thead>
               <tbody>
                 <tr *ngFor="let c of carteiras">
@@ -95,14 +100,20 @@
                    <div  *ngIf="c.rank != 0">{{c.rank}}</div> 
                   </td>
                   <td class="text-center">
-                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" > {{c.codigoCarteira}}</a>
-                  </td>
-                  <td class="text-center">
-                    {{c.saldo | number:'1.0'}}
+                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank"> {{c.codigoCarteira}}</a>
                   </td>
                   <td class="text-center">
                     {{c.tipoCarteira}}
                   </td>
+                  <td class="text-center">
+                    {{c.tipoCarteiraEmpresa}}
+                  </td>
+
+
+                  <td class="text-right">
+                    {{c.saldo | number:'1.0-0'}}
+                  </td>
+                  
                   
                 </tr>
               </tbody>

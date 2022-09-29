@@ -89,7 +89,7 @@ export class CursoService extends BaseService{
     }
 
     public BuscarTodosHistoricos(){
-        return this.httpClient.get(this.UrlAPIBlock + 'Historico/ListarTodos')
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarPorHistoricoPersonalizado?numeroTokens=0')
         .pipe(catchError(this.handleError));
     }
 
@@ -100,6 +100,22 @@ export class CursoService extends BaseService{
 
     public BuscarPorCodCarteiraHist(codcarteira : string){
         return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarPorCodCarteira?codCarteira=' + codcarteira)
+        .pipe(catchError(this.handleError));
+    }
+
+
+    public BuscarHistEmpresa(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarPorHistoricoPersonalizado?TipoCarteira=Empresa&numeroTokens=0' )
+        .pipe(catchError(this.handleError));
+    }
+
+    public BuscarHistPrivada(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarPorHistoricoPersonalizado?TipoCarteira=Privada&numeroTokens=0' )
+        .pipe(catchError(this.handleError));
+    }
+
+    public BuscarHistCem(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarPorHistoricoPersonalizado?numeroTokens=100000' )
         .pipe(catchError(this.handleError));
     }
 
