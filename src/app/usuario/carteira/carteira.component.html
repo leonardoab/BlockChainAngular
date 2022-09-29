@@ -1,6 +1,6 @@
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content">
+<div class="main-content responsive-main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -76,41 +76,41 @@
             <table class="table">
               <thead class=" text-primary">
 
-                <th class="text-center">
+                <th class="text-center coluna-responsiva">
                   Rank
                 </th>
 
-                <th class="text-center">
+                <th class="text-center coluna-diminuir-medio">
                   Código Carteira
                 </th>
-                <th class="text-center">
+                <th class="text-center coluna-responsiva">
                   Tipo Carteira
                 </th>
-                <th class="text-center">
+                <th class="text-center coluna-responsiva">
                   Tipo Carteira Empresa
                 </th>
-                <th class="text-right">
+                <th class="text-right coluna-diminuir-medio">
                   Total Tokens
                 </th>
                
               </thead>
               <tbody>
                 <tr *ngFor="let c of carteiras">
-                  <td class="text-center">
+                  <td class="text-center coluna-responsiva">
                    <div  *ngIf="c.rank != 0">{{c.rank}}</div> 
                   </td>
-                  <td class="text-center">
+                  <td class="text-center coluna-diminuir">
                     <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank"> {{c.codigoCarteira}}</a>
                   </td>
-                  <td class="text-center">
+                  <td class="text-center coluna-responsiva">
                     {{c.tipoCarteira}}
                   </td>
-                  <td class="text-center">
+                  <td class="text-center coluna-responsiva">
                     {{c.tipoCarteiraEmpresa}}
                   </td>
 
 
-                  <td class="text-right">
+                  <td class="text-right coluna-diminuir-medio">
                     {{c.saldo | number:'1.0-0'}}
                   </td>
                   

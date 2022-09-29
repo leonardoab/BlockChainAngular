@@ -2,3 +2,38 @@
     overflow: hidden;
    
 }
+
+
+
+@media only screen and (max-width: 870px) {
+    
+    .responsive-main-content {
+
+
+
+        padding: 0 10px 0 15px !important;
+    }
+
+    .coluna-responsiva{
+
+
+        display: none;
+
+    }
+
+    .coluna-diminuir{
+
+        font-size: 10px;
+
+
+    }
+
+    .coluna-diminuir-medio{
+
+        font-size: 12px;
+
+
+    }
+
+
+  }

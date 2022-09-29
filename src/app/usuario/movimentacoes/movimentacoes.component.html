@@ -1,6 +1,6 @@
 <div class="panel-header panel-header-sm">
 </div>
-<div class="main-content">
+<div class="main-content responsive-main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -73,43 +73,44 @@
           <div class="table-responsive" style="padding-right: 3%;">
             <table class="table">
               <thead class=" text-primary">
-                <th class="text-center">
+                <th class="text-center coluna-diminuir-medio">
                   Data
                 </th>
-                <th class="text-center">
+                <th class="text-center coluna-responsiva">
                   Tipo Carteira
                 </th>
-                <th class="text-center">
+                <th class="text-center coluna-diminuir-medio">
                   Código Carteira
                 </th>
-                <th class="text-right">
+                <th class="text-right coluna-responsiva">
                   Saldo Atual
                 </th>
-                <th class="text-right">
+                <th class="text-right coluna-diminuir-medio">
                 Quantidade Tokens
                 </th>
-                <th class="text-right">
+                <th class="text-right coluna-responsiva">
                   Valor Real
                   </th>
               </thead>
               <tbody>
                 <tr *ngFor="let c of historicos">
-                  <td class="text-center">
+                  <td class="text-center coluna-diminuir-medio">
                     {{c.dataHistorico | date:'dd/MM/YY HH:mm' }}
                   </td>
-                  <td class="text-center">
+                  <td class="text-center coluna-responsiva">
                     {{c.tipoCarteira }}
                   </td>
-                  <td class="text-center">
+                  <td class="text-center coluna-diminuir">
                     <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank"> {{c.codigoCarteira}}</a>
                   </td>
-                  <td class="text-right">
+                  <td class="text-right coluna-responsiva">
                     {{c.saldo | number:'1.0-0'}}
                   </td>
-                  <td class="text-right">
-                    {{c.diferenca | number:'1.0-0'}}
+                  <td class="text-right coluna-diminuir-medio">
+                    {{c.diferenca | number:'1.0-0'}} <br>
+                    <div class="mobile">R$ {{c.valorTransacaoReal | number:'1.0-0'}}</div>
                   </td>
-                  <td class="text-right">
+                  <td class="text-right coluna-responsiva">
                     R$ {{c.valorTransacaoReal | number:'1.0-0'}}
                   </td>
                   
