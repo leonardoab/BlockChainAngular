@@ -119,5 +119,10 @@ export class CursoService extends BaseService{
         .pipe(catchError(this.handleError));
     }
 
+    public BuscarHistCotacao(){
+        return this.httpClient.get(this.UrlAPIBlock + 'Historico/BuscarUltimaCotacao' )
+        .pipe(catchError(this.handleError));
+    }
+
 
 }

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class MovimentacoesComponent implements OnInit {
 
   historicos;
+  historicoscotacao;
   codigoCarteira: string = '';
 
   constructor(private cursoService: CursoService,
@@ -22,6 +23,7 @@ export class MovimentacoesComponent implements OnInit {
   ngOnInit() {
     
     this.consultarTodosHistoricos();
+    this.BuscarUltimaCotacao();
   }
 
   consultarTodosHistoricos() {
@@ -75,6 +77,19 @@ export class MovimentacoesComponent implements OnInit {
         if (data) {
           this.historicos = data;
           //this.carteiras = this.carteiras.carteiras;
+        }
+      });
+    
+  }
+
+
+  BuscarUltimaCotacao() {
+    console.log(this.codigoCarteira);
+    this.cursoService.BuscarHistCotacao().subscribe(
+      data => {
+        if (data) {
+          this.historicoscotacao = data;
+          
         }
       });
     

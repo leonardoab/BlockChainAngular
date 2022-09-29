@@ -16,6 +16,7 @@ export class CarteiraComponent implements OnInit {
 
   carteiras;
   codigoCarteira: string = '';
+  historicoscotacao;
 
   constructor(private cursoService: CursoService,
     private router: Router,
@@ -51,6 +52,7 @@ export class CarteiraComponent implements OnInit {
   ngOnInit() {
     
     this.consultarTodasCarteiras();
+    this.BuscarUltimaCotacao();
   }
 
   consultarTodasCarteiras() {
@@ -72,6 +74,18 @@ export class CarteiraComponent implements OnInit {
         if (data) {
           this.carteiras = data;
           //this.carteiras = this.carteiras.carteiras;
+        }
+      });
+    
+  }
+
+  BuscarUltimaCotacao() {
+    console.log(this.codigoCarteira);
+    this.cursoService.BuscarHistCotacao().subscribe(
+      data => {
+        if (data) {
+          this.historicoscotacao = data;
+          
         }
       });
     
