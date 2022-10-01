@@ -36,6 +36,7 @@ export class CarteiraComponent implements OnInit {
         }
       });
       this.codigoCarteira =  '';
+      this.BuscarUltimaCotacao();
  }
 
  BuscarCarteirasPrivada(){
@@ -47,6 +48,7 @@ export class CarteiraComponent implements OnInit {
       }
     });
     this.codigoCarteira =  '';
+    this.BuscarUltimaCotacao();
 }
 
   ngOnInit() {
@@ -64,6 +66,7 @@ export class CarteiraComponent implements OnInit {
         }
       });
       this.codigoCarteira =  '';
+      this.BuscarUltimaCotacao();
   }
 
 
@@ -76,6 +79,7 @@ export class CarteiraComponent implements OnInit {
           //this.carteiras = this.carteiras.carteiras;
         }
       });
+      this.BuscarUltimaCotacao();
     
   }
 

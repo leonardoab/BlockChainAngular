@@ -35,6 +35,7 @@ export class MovimentacoesComponent implements OnInit {
         }
       });
       this.codigoCarteira = '';
+      this.BuscarUltimaCotacao();
   }
 
   consultarTodosHistoricosEmpresa() {
@@ -46,6 +47,7 @@ export class MovimentacoesComponent implements OnInit {
         }
       });
       this.codigoCarteira = '';
+      this.BuscarUltimaCotacao();
   }
 
   consultarTodosHistoricosPrivada() {
@@ -57,6 +59,7 @@ export class MovimentacoesComponent implements OnInit {
         }
       });
       this.codigoCarteira = '';
+      this.BuscarUltimaCotacao();
   }
 
   consultarTodosHistoricosCem() {
@@ -68,6 +71,7 @@ export class MovimentacoesComponent implements OnInit {
         }
       });
       this.codigoCarteira = '';
+      this.BuscarUltimaCotacao();
   }
 
   BuscarPorCodCarteira() {
@@ -79,6 +83,7 @@ export class MovimentacoesComponent implements OnInit {
           //this.carteiras = this.carteiras.carteiras;
         }
       });
+      this.BuscarUltimaCotacao();
     
   }
 
@@ -92,6 +97,7 @@ export class MovimentacoesComponent implements OnInit {
           
         }
       });
+      
     
   }
 

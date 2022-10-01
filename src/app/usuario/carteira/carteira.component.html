@@ -52,19 +52,27 @@
             <table class="table">
               <thead class=" text-primary">
 
-                <th class="text-center coluna-responsiva">
+                <th class="text-center coluna-diminuir-medio">
                   Rank
                 </th>
 
-                <th class="text-center coluna-diminuir-medio">
+                <th class="text-center coluna-responsiva">
                   Código Carteira
                 </th>
-                <th class="text-center coluna-responsiva">
+                <th class="text-center mobile coluna-diminuir-medio">
+                  Codigo Reduzido
+                </th>
+                <th class="text-center coluna-diminuir-medio">
                   Tipo Carteira
                 </th>
                 <th class="text-center coluna-responsiva">
                   Tipo Carteira Empresa
                 </th>
+
+                <th class="text-center coluna-responsiva">
+                  Data Verificação
+                </th>
+
                 <th class="text-right coluna-diminuir-medio">
                   Total Tokens
                 </th>
@@ -72,17 +80,24 @@
               </thead>
               <tbody>
                 <tr *ngFor="let c of carteiras">
-                  <td class="text-center coluna-responsiva">
+                  <td class="text-center coluna-diminuir-medio">
                    <div  *ngIf="c.rank != 0">{{c.rank}}</div> 
                   </td>
-                  <td class="text-center coluna-diminuir">
+                  <td class="text-center coluna-diminuir coluna-responsiva">
                     <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank"> {{c.codigoCarteira}}</a>
                   </td>
-                  <td class="text-center coluna-responsiva">
+                  <td class="text-center coluna-diminuir mobile">
+                    <a href="https://bscscan.com/token/0x6dd60afb2586d31bf390450adf5e6a9659d48c4a?a={{c.codigoCarteira}}" target="_blank">{{c.codigoCarteira | slice:38:42}} </a>
+                  </td>
+                  <td class="text-center coluna-diminuir-medio">
                     {{c.tipoCarteira}}
                   </td>
-                  <td class="text-center coluna-responsiva">
+                  <td class="text-center coluna-responsiva ">
                     {{c.tipoCarteiraEmpresa}}
+                  </td>
+
+                  <td class="text-center coluna-responsiva">
+                    {{c.dataVerificacao | date:'dd/MM/YY HH:mm' }}
                   </td>
 
 
